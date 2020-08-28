@@ -17,7 +17,7 @@
      - Show the **SideBar** by pressing "**CTRL + T**" OR **Text Editor > View > SideBar**
      - All the options will be displayed in the panel **CodeSync**
 
-### New Features!
+### New Features !
 
   - Sync to device
   - Sync from device
