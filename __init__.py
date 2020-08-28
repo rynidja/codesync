@@ -18,12 +18,15 @@ from . sync_panel import SyncPanel
 
 bl_info = {
     "name": "CodeSync",
+    "description": "Script sync tools for blender and upbge.",
     "author": "rynpix(rayane866)",
-    "description": "Script sync tools for blender and upbge",
-    "blender": (2, 91, 0),
     "version": (0, 0, 1),
-    "location": "Texts",
+    "blender": (2, 91, 0),
+    "location": "Texts", #idk exactly ¯\_(ツ)_/¯
     "warning": "",
+    "wiki_url": "",
+    "tracker_url": "https://github.com/rynpix/codesync/issues",
+    "support": "COMMUNITY",
     "category": "Text Editor"
 }
 
