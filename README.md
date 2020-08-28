@@ -5,7 +5,7 @@
 ### Installation 
   -  Download the zip file **(dont unzip it)** from :
      -  the **[release page][dp]** 
-     -  the **green button above** as **zip file** [^][dzip]
+     -  the **green button above** as **zip file (May contain bugs)** [^][dzip]
   -  Install it from **edit > Preferences > Add-ons > Install** 
   -  Select the zip file and click **Install add-on**
   -  Enable the add-on
