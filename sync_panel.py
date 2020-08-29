@@ -21,4 +21,4 @@ class SyncPanel(bpy.types.Panel):
         self.layout.operator("texts.delete_files", icon='REMOVE',
                              text="Delete device files")
         self.layout.operator("texts.delete_all", icon='REMOVE',
-                             text="delete blender texts")
+                             text="Delete blender texts")
