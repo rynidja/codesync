@@ -86,5 +86,6 @@ class DeleteTexts(bpy.types.Operator):
 
     def execute(self, context):
         for text in bpy.data.texts:
-            delete_text(text.name)
+            if text.name.endswith(".py"):
+                delete_text(text.name)
         return {'FINISHED'}
