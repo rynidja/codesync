@@ -5,7 +5,7 @@
 ### Installation 
   -  Download the zip file **(dont unzip it)** from :
      -  the **[release page][dp]** 
-     -  the **green button above** as **zip file (May contain bugs)** [^][dzip]
+     -  the **green button above** as **zip file** [^][dzip]
   -  Install it from **edit > Preferences > Add-ons > Install** 
   -  Select the zip file and click **Install add-on**
   -  Enable the add-on
@@ -18,7 +18,7 @@
   - **From SideBar Panel**
      - Open the **Text Editor**
      - Show the **SideBar** by pressing "**CTRL + T**" OR **Text Editor > View > SideBar**
-     - All the options will be displayed in the panel **CodeSync**
+     - All the options will be displayed in the **CodeSync** panel
 
 ### New Features !
 
