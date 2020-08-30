@@ -22,7 +22,7 @@ bl_info = {
     "name": "CodeSync",
     "description": "Script sync tools for blender and upbge.",
     "author": "rynpix(rayane866)",
-    "version": (0, 0, 1),
+    "version": (0, 1, 0),
     "blender": (2, 91, 0),
     "location": "Texts",  # idk exactly ¯\_(ツ)_/¯
     "warning": "",
