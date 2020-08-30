@@ -14,7 +14,9 @@
 import bpy
 from . code_sync import (SyncFromDevice, SyncToDevice, DeleteTexts,
                          DeleteFiles, BackUpScripts)
+from . live_sync import StartLiveSync, StopLiveSync
 from . sync_panel import SyncPanel
+
 
 bl_info = {
     "name": "CodeSync",
@@ -22,7 +24,7 @@ bl_info = {
     "author": "rynpix(rayane866)",
     "version": (0, 0, 1),
     "blender": (2, 91, 0),
-    "location": "Texts", #idk exactly ¯\_(ツ)_/¯
+    "location": "Texts",  # idk exactly ¯\_(ツ)_/¯
     "warning": "",
     "wiki_url": "",
     "tracker_url": "https://github.com/rynpix/codesync/issues",
@@ -32,11 +34,13 @@ bl_info = {
 
 
 classes = {SyncFromDevice, SyncToDevice, DeleteTexts, DeleteFiles,
-           BackUpScripts, SyncPanel}
+           BackUpScripts, SyncPanel, StartLiveSync, StopLiveSync}
+
 
 def register():
     for cls in classes:
         bpy.utils.register_class(cls)
+
 
 def unregister():
     for cls in classes:
