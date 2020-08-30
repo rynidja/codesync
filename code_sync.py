@@ -18,7 +18,8 @@ class SyncToDevice(bpy.types.Operator):
         for text in bpy.data.texts:
             name = text.name
             if name.endswith(".py"):
-                with open(os.path.join(scripts_path, name), "w", encoding="utf-8") as file:
+                with open(os.path.join(scripts_path, name), "w",
+                          encoding="utf-8") as file:
                     file.write(pull_text(name))
         return {'FINISHED'}
 
@@ -34,10 +35,8 @@ class SyncFromDevice(bpy.types.Operator):
         for file in os.listdir(scripts_path):
             if (os.path.isfile(os.path.join(scripts_path, file)) and
                     file.endswith(".py")):
-                with open(os.path.join(scripts_path, file), "r", encoding="utf-8") as f:
-                    data = f.read()
                 create_text(file)
-                update_text(file, data)
+                update_text(file, path=os.path.join(scripts_path, file))
         return {'FINISHED'}
 
 
@@ -59,7 +58,8 @@ class BackUpScripts(bpy.types.Operator):
         for text in bpy.data.texts:
             name = text.name
             if name.endswith(".py"):
-                with open(os.path.join(buckup_path, name), "w", encoding="utf-8") as file:
+                with open(os.path.join(buckup_path, name), "w",
+                          encoding="utf-8") as file:
                     file.write(pull_text(name))
         return {'FINISHED'}
 
