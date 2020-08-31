@@ -65,7 +65,9 @@ def watcher(path):
                     rename_text(old, new)
                     break
     for file in added:
-        create_text(new)
+        create_text(file)
+        if added[file].st_size:  # In case of pasting or undeleting files
+            update_text(file, path=os.path.join(path, file))
     for file in removed:
         delete_text(file)
     for file in modified:

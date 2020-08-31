@@ -4,9 +4,6 @@ import os
 import datetime
 
 
-""" Sync functions """
-
-
 class SyncToDevice(bpy.types.Operator):
     """Sync to device"""
     bl_idname = "texts.sync_to_device"
