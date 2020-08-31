@@ -38,24 +38,24 @@ class SyncFromDevice(bpy.types.Operator):
 
 
 class BackUpScripts(bpy.types.Operator):
-    """BuckUp to device"""
+    """BackUp to device"""
     bl_idname = "texts.back_up"
-    bl_label = "CodeSync > BuckUp to device"
+    bl_label = "CodeSync > BackUp to device"
 
     def execute(self, context):
         fname = str(datetime.datetime.now()
                     ).replace(' ', '_').replace(":", "-").split('.')[0]+"\\"
         scripts_path = os.path.join(os.path.dirname(bpy.data.filepath),
                                     "scripts\\")
-        buckups_path = os.path.join(scripts_path, ".BuckUp\\")
-        buckup_path = os.path.join(buckups_path, fname)
+        backups_path = os.path.join(scripts_path, ".BackUp\\")
+        backup_path = os.path.join(backups_path, fname)
         os.mkdir(scripts_path) if not os.path.exists(scripts_path) else None
-        os.mkdir(buckups_path) if not os.path.exists(buckups_path) else None
-        os.mkdir(buckup_path) if not os.path.exists(buckup_path) else None
+        os.mkdir(backups_path) if not os.path.exists(backups_path) else None
+        os.mkdir(backup_path) if not os.path.exists(backup_path) else None
         for text in bpy.data.texts:
             name = text.name
             if name.endswith(".py"):
-                with open(os.path.join(buckup_path, name), "w",
+                with open(os.path.join(backup_path, name), "w",
                           encoding="utf-8") as file:
                     file.write(pull_text(name))
         return {'FINISHED'}
