@@ -12,18 +12,19 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import bpy
-from . code_sync import (SyncFromDevice, SyncToDevice, DeleteTexts,
-                         DeleteFiles, BackUpScripts)
+from . code_sync import (SyncFromDevice, SyncToDevice, BackUpScripts,
+                         DelDeviceScripts, DelBlendScripts)
 from . live_sync import StartLiveSync, StopLiveSync
 from . sync_panel import SyncPanel
 
 
 bl_info = {
     "name": "CodeSync",
-    "description": "Script sync tools for blender and upbge.",
+    "description": """Script sync tools for blender and upbge that
+                   let you edit scripts with your favorite text editor""",
     "author": "rynpix(rayane866)",
-    "version": (0, 1, 0),
-    "blender": (2, 91, 0),
+    "version": (0, 1, 1),
+    "blender": (2, 91, 0),  # working in 2.82
     "location": "Texts",  # idk exactly ¯\_(ツ)_/¯
     "warning": "",
     "wiki_url": "",
@@ -33,7 +34,7 @@ bl_info = {
 }
 
 
-classes = {SyncFromDevice, SyncToDevice, DeleteTexts, DeleteFiles,
+classes = {SyncFromDevice, SyncToDevice, DelDeviceScripts, DelBlendScripts,
            BackUpScripts, SyncPanel, StartLiveSync, StopLiveSync}
 
 

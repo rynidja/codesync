@@ -5,10 +5,9 @@ import functools
 import platform
 
 
-dns = bpy.app.driver_namespace
-is_live = dns["is_live"] = False
-before = dns["before"] = {}
-after = dns["after"] = {}
+is_live = False
+previous = {}
+current = {}
 
 
 class StartLiveSync(bpy.types.Operator):
@@ -36,23 +35,23 @@ class StopLiveSync(bpy.types.Operator):
 
 
 def watcher(path):
-    global is_live, before, after
+    global is_live, previous, current
     if not is_live:
         return None
 
-    after = dict((file, os.stat(os.path.join(path, file))
-                  ) for file in os.listdir(path) if (os.path.isfile(
-                      os.path.join(path, file))
+    current = dict((file, os.stat(os.path.join(path, file))
+                    ) for file in os.listdir(path) if (os.path.isfile(
+                        os.path.join(path, file))
         and file.endswith(".py")))
-    added = dict((file, after[file])
-                 for file in after if file not in before)
-    removed = dict((file, before[file])
-                   for file in before if file not in after)
-    not_added = dict((file, after[file])
-                     for file in after if file not in added)
+    added = dict((file, current[file])
+                 for file in current if file not in previous)
+    removed = dict((file, previous[file])
+                   for file in previous if file not in current)
+    not_added = dict((file, current[file])
+                     for file in current if file not in added)
     modified = dict((file, not_added[file])
                     for file in not_added
-                    if not_added[file].st_mtime != before[file].st_mtime)
+                    if not_added[file].st_mtime != previous[file].st_mtime)
 
     if platform.system() == "Windows":
         for new in added:
@@ -73,5 +72,5 @@ def watcher(path):
     for file in modified:
         update_text(file, path=os.path.join(path, file))
 
-    before = after
-    return .2
+    previous = current
+    return .1

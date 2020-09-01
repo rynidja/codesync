@@ -5,7 +5,7 @@ def pull_text(name: str):
     try:
         return bpy.data.texts[str(name)].as_string()
     except KeyError:
-        return False
+        return None
 
 
 def update_text(name: str, content: str = None, path: str = None):
@@ -36,6 +36,5 @@ def create_text(name: str):
 def rename_text(old: str, new: str):
     try:
         bpy.data.texts[str(old)].name = str(new)
-        return True
     except KeyError:
         return False

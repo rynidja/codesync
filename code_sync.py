@@ -47,7 +47,7 @@ class BackUpScripts(bpy.types.Operator):
                     ).replace(' ', '_').replace(":", "-").split('.')[0]+"\\"
         scripts_path = os.path.join(os.path.dirname(bpy.data.filepath),
                                     "scripts\\")
-        backups_path = os.path.join(scripts_path, ".BackUp\\")
+        backups_path = os.path.join(scripts_path, ".backUp\\")
         backup_path = os.path.join(backups_path, fname)
         os.mkdir(scripts_path) if not os.path.exists(scripts_path) else None
         os.mkdir(backups_path) if not os.path.exists(backups_path) else None
@@ -61,10 +61,10 @@ class BackUpScripts(bpy.types.Operator):
         return {'FINISHED'}
 
 
-class DeleteFiles(bpy.types.Operator):
+class DelDeviceScripts(bpy.types.Operator):
     """Delete all files"""
-    bl_idname = "texts.delete_files"
-    bl_label = "CodeSync > Delete all files"
+    bl_idname = "texts.del_device_scripts"
+    bl_label = "CodeSync > Delete in-device scripts"
 
     def execute(self, context):
         scripts_path = os.path.dirname(bpy.data.filepath)+"\\scripts\\"
@@ -76,10 +76,10 @@ class DeleteFiles(bpy.types.Operator):
         return {'FINISHED'}
 
 
-class DeleteTexts(bpy.types.Operator):
+class DelBlendScripts(bpy.types.Operator):
     """Delete all texts"""
-    bl_idname = "texts.delete_all"
-    bl_label = "CodeSync > Delete all texts"
+    bl_idname = "texts.del_blend_scripts"
+    bl_label = "CodeSync > Delete in-blend scripts"
 
     def execute(self, context):
         for text in bpy.data.texts:

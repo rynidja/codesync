@@ -25,7 +25,7 @@ class SyncPanel(bpy.types.Panel):
                        text="Stop")
         self.layout.separator()
         self.layout.label(text="Delete scripts")
-        self.layout.operator("texts.delete_files", icon="REMOVE",
-                             text="Delete device files")
-        self.layout.operator("texts.delete_all", icon="REMOVE",
-                             text="Delete blender texts")
+        self.layout.operator("texts.del_device_scripts", icon="REMOVE",
+                             text="Delete in-device scripts")
+        self.layout.operator("texts.del_blend_scripts", icon="REMOVE",
+                             text="Delete in-blend scripts")
